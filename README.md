@@ -1,6 +1,6 @@
-# pea_hydrogen-molecule
+# Demonstration of Phase Estimation Algorithm for Hydrogen Molecule
 Calculating the energy spectra for hydrogen molecule's ground and first 3 excited states by using simulator of quantum computer (pyquil).
-# Synopsis
+## Synopsis
 
 Calculating the energy spectra for hydrogen molecule's ground and first 3 excited states by using simulator of quantum computer (pyQuil).
 
