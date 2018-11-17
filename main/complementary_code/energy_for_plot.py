@@ -34,7 +34,7 @@ def state_el_energy_distance(state, start_distance, end_distance, dots):
 
 
 def electron_energy_distance(state, time, trails, trotter_order, start_distance, end_distance, dots, pozitive_energy):
-    precision = 5
+    precision = 6
 
     # list of distances of H atoms in H2 molecule
     atomic_distance = [0] * dots
