@@ -7,7 +7,7 @@ trails = 7
 t = 4
 start_distance = 0.43
 end_distance = 2.65
-dots = 1
+dots = 50
 trotter_order = 2
 state = [0, 1, 2, 3]
 
