@@ -10,7 +10,7 @@ Calculating the energy spectra for hydrogen molecule's ground and first 3 excite
 
 The following tools are needed to install and run the app:
 
-* pyQuil 1.9 (https://github.com/rigetticomputing/pyQuil). Not working with pyQuil 2.0
+* pyQuil 1.9 (https://github.com/rigetticomputing/pyQuil).
 * OpenFermion
 * pyscf
 * forestopenfermion
