@@ -16,7 +16,7 @@ The following tools are needed to install and run the app:
 * forestopenfermion
 * openfermionpyscf
 
-or run the following comand in your terminal:
+or run the following command in your terminal:
 
 `install -r requirements.txt`
 
