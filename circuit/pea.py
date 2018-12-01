@@ -5,9 +5,9 @@ from pyquil.gates import X
 from math import pi
 
 from circuit.pea_pyquil_program import pea_program
-from classic_coding.bit_manipulation import bitstring_to_value
-from classic_coding.majority_of_measurement import majority_and_index
-from classic_coding.units_transformation import hartree_to_MJmol
+from common_tools.bit_manipulation import bitstring_to_value
+from common_tools.majority_of_measurement import majority_and_index
+from common_tools.units_transformation import hartree_to_MJmol
 
 
 def H2_energy_estimation(ancilary_start, ancilary_num, time, atomic_distance, state, trails=5, pozitive_energy=True, trotter_order = 2):

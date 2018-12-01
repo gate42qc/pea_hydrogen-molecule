@@ -5,7 +5,7 @@ from forestopenfermion import qubitop_to_pyquilpauli
 from pyquil.quil import Program
 from pyquil.paulis import exponentiate
 
-from program_operations.operation import repeat_program
+from common_tools.operation import repeat_program
 
 
 def exp_hamiltoniantrot_H2(time, atomic_distance, trotter_order):

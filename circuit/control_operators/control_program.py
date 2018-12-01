@@ -2,7 +2,7 @@ from pyquil.quil import Program
 from pyquil.quilbase import Gate
 from pyquil.gates import CNOT, CCNOT, CPHASE
 from Exceptions.errors import NotGateException
-from program_operations.control_gates import *
+from circuit.control_operators.control_gates import *
 
 
 def control_program(source_program, target_program, ancillary):

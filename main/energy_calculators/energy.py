@@ -1,6 +1,6 @@
 from Exceptions.errors import RIGETTI_SERVER_ERROR
 from circuit.pea import H2_energy_estimation
-from classic_coding.units_transformation import hartree_to_MJmol
+from common_tools.units_transformation import hartree_to_MJmol
 
 
 def energy_in_infinity():

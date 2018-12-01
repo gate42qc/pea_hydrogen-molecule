@@ -2,9 +2,9 @@ from grove.qft.fourier import inverse_qft
 from pyquil.quil import Program
 from pyquil.gates import H
 
-from program_operations.control_gates import *
-from program_operations.control_program import control_program
-from program_operations.operation import repeat_program
+from circuit.control_operators.control_gates import *
+from circuit.control_operators.control_program import control_program
+from common_tools.operation import repeat_program
 from quantum_chemistry.hydrogen_molecule import exp_hamiltoniantrot_H2
 
 
