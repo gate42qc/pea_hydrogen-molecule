@@ -1,16 +1,15 @@
-from pyquil.api.errors import UnknownApiError, QVMError
 from pyquil.quil import Program
 from pyquil.api import QVMConnection
-from pyquil.gates import X
+from pyquil.gates import *
 from math import pi
 
 from circuit.pea_pyquil_program import pea_program
 from common_tools.bit_manipulation import bitstring_to_value
 from common_tools.majority_of_measurement import majority_and_index
-from common_tools.units_transformation import hartree_to_MJmol
 
 
-def H2_energy_estimation(ancilary_start, ancilary_num, time, atomic_distance, state, trails=5, pozitive_energy=True, trotter_order = 2):
+def H2_energy_estimation(ancilary_start, ancilary_num, time, atomic_distance, state,
+                         trails=5, pozitive_energy=True, trotter_order = 2):
     """
     takes phase obtained from phase_estimation method and  converts it to energy by
     using the equation:
@@ -78,30 +77,14 @@ def phase_estimation(ancillary_start, ancillary_num, time, atomic_distance, stat
         raise ValueError
     prog = init_qubit + pea_program(ancillary_start, ancillary_num, time, atomic_distance, trotter_order)
 
+    ro = prog.declare('ro', memory_type='BIT', memory_size=ancillary_num)
     # measurement of ancillary qubits
     for cindex, qindex in enumerate(range(ancillary_start, ancillary_start + ancillary_num)):
-        prog.measure(qindex, cindex)
+        prog += MEASURE(qindex, ro[cindex])
 
     qvm = QVMConnection()
     cregister = list(range(0, ancillary_num))
-
-    # Maybe the server of Rigetti will not work. Should handle for not stopping for one failure
-    without_error = False
-    for j in range(5):
-        try:
-            m_reg = qvm.run(prog, cregister, trails)
-            without_error = True
-            break
-        except UnknownApiError:
-            print("UnknownApiError was raised")
-            continue
-        except QVMError:
-            print("QVMError was raised")
-            continue
-        except ConnectionError:
-            print("ConnectionError was raised")
-    if not without_error:
-        return None
+    m_reg = qvm.run(prog, cregister, trails)
 
     # taking most frequent result from the phase elements. The number of the elements are defined by the trails
     phase, major_index = majority_and_index([bitstring_to_value(bitst) for bitst in m_reg])
